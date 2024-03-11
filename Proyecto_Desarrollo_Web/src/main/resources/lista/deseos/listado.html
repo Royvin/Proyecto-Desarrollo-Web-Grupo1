@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+
+<head th:replace="~{layout/plantilla :: head}">
+    <title>Anggelus Estética</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-icons {
+            font-size: 24px;
+        }
+
+        .product-icons a {
+            color: #e83e8c;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header th:replace="~{layout/plantilla :: header}" />
+    <div class="container">
+        <h1>Lista de deseos</h1>
+        <div class="product-icons">
+            <a href="#" target="_blank"><i class="lista.deseos"></i> Crema secante de té de árbol Exel</a>
+            <img src="../../imagenes/crema secante té de árbol excel.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> Crema hidratante Exel</a>
+            <img src="../../imagenes/c.vit crema facial hidratante mediderma.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> Vitamina C Exel</a>
+            <img src="../../imagenes/vitamina c exel.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> Jelly Mask Exel</a>
+            <img src="../../imagenes/jelly mask exel.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> C.VIT crema facial hidratante</a>
+            <img src="../../imagenes/c.vit crema facial hidratante mediderma.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> C.VIT crema contorno de ojos</a>
+            <img src="../../imagenes/c.vit crema para contorno de ojos mediderma.jpg" alt=""/>
+            <a href="#" target="_blank"><i class="lista.deseos"></i> C.Vit Liposomal serum</a>
+            <img src="../../imagenes/C.vit liposomal serum.jpg" alt=""/>
+        </div>
+    </div>
+    <footer th:replace="~{layout/plantilla :: footer}" />
+</body>
+
+</html>
+
