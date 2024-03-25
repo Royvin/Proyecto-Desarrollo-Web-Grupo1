@@ -1,4 +1,4 @@
-package com.usuario.domain;
+package com.proyecto.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
