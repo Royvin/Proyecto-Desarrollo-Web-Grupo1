@@ -24,6 +24,7 @@ public class ListaDeseosServiceImpl implements ListaDeseosService {
         return lista;
     }
 
+    //No se porque me da error
     @Override
     @Transactional(readOnly = true)
     public ListaDeseos getListaDeseos(ListaDeseos listaDeseos) {
