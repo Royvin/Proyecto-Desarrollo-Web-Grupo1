@@ -19,7 +19,7 @@ public class ListaDeseos implements Serializable {
     private String descripcion;
     private String detalle;
     private double precio;
-    private int existencias;
+    private int existencias; //pensar si lo vamos a poner
     private String rutaImagen;
     private boolean activo;
 
@@ -34,12 +34,12 @@ public class ListaDeseos implements Serializable {
         this.descripcion = descripcion;
         this.detalle = detalle;
         this.precio = precio;
-        this.existencias = existencias;
+        this.existencias = existencias; //pensar si lo vamos a dejar
         this.rutaImagen = imagen;
         this.activo = activo;
     }
     
-    public Long getIdProducto() {
+    public Long getIdProducto() { 
         return idProducto;
  
     }

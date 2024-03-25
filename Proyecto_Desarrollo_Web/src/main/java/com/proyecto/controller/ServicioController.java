@@ -1,9 +1,8 @@
 package com.proyecto.controller;
 
+import com.proyecto.domain.Servicio;
 import com.proyecto.service.ServicioService;
-import com.tienda.domain.Servicio;
-import com.tienda.service.ServicioService;
-import com.tienda.service.impl.FirebaseStorageServiceImpl;
+import com.proyecto.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
