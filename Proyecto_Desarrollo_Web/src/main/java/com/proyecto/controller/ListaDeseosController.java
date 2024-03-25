@@ -1,9 +1,8 @@
 package com.proyecto.controller;
 
-import com.tienda.domain.Producto;
-import com.tienda.service.CategoriaService;
-import com.tienda.service.ProductoService;
-import com.tienda.service.impl.FirebaseStorageServiceImpl;
+import com.proyecto.domain.Producto;
+import com.proyecto.service.ListaDeseosService;
+import com.proyecto.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,15 +20,13 @@ public class ListaDeseosController {
     private ProductoService productoService;
 
     @Autowired
-    private CategoriaService categoriaService;
+    private ListaDeseosService listaDeseosService;
 
     @GetMapping("/listado")
     private String listado(Model model) {
         var productos = productoService.getProductos(false);
-        var categorias = categoriaService.getCategorias(false);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-        model.addAttribute("categorias", categorias);
         return "/producto/listado";
     }
 
@@ -38,19 +35,12 @@ public class ListaDeseosController {
         return "/producto/modifica";
     }
 
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
-
     @PostMapping("/guardar")
     public String productoGuardar(Producto producto,
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
-            productoService.save(producto);
-            producto.setRutaImagen(
-                    firebaseStorageService.cargaImagen(
-                            imagenFile,
-                            "producto",
-                            producto.getIdProducto()));
+            //Pegar las imagenes pero por alguna razon no puedo
+            // producto.setRutaImagen(firebaseStorageService.cargaImagen(imagenFile, "producto", producto.getIdProducto()));
         }
         productoService.save(producto);
         return "redirect:/producto/listado";
@@ -64,10 +54,8 @@ public class ListaDeseosController {
 
     @GetMapping("/modifica/{idProducto}")
     public String productoModificar(Producto producto, Model model) {
-        var categorias = categoriaService.getCategorias(false);
-        producto = productoService.getProducto(producto);
+        producto = (Producto) productoService.getProducto(producto);
         model.addAttribute("producto", producto);
-        model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
 }

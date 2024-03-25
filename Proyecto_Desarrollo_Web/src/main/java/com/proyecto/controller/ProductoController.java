@@ -1,9 +1,8 @@
 package com.proyecto.controller;
 
-import com.tienda.domain.Producto;
-import com.tienda.service.CategoriaService;
-import com.tienda.service.ProductoService;
-import com.tienda.service.impl.FirebaseStorageServiceImpl;
+import com.proyecto.domain.Producto;
+import com.proyecto.service.ProductoService;
+import com.proyecto.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,16 +19,11 @@ public class ProductoController {
     @Autowired
     private ProductoService productoService;
 
-    @Autowired
-    private CategoriaService categoriaService;
-
     @GetMapping("/listado")
     private String listado(Model model) {
         var productos = productoService.getProductos(false);
-        var categorias = categoriaService.getCategorias(false);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
-        model.addAttribute("categorias", categorias);
         return "/producto/listado";
     }
 
@@ -64,10 +58,8 @@ public class ProductoController {
 
     @GetMapping("/modifica/{idProducto}")
     public String productoModificar(Producto producto, Model model) {
-        var categorias = categoriaService.getCategorias(false);
-        producto = productoService.getProducto(producto);
+        producto = (Producto) productoService.getProducto(producto);
         model.addAttribute("producto", producto);
-        model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
 }

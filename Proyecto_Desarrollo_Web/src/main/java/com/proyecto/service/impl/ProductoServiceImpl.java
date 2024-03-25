@@ -1,8 +1,8 @@
 package com.proyecto.service.impl;
 
-import com.tienda.dao.ProductoDao;
-import com.tienda.domain.Producto;
-import com.tienda.service.ProductoService;
+import com.proyecto.dao.ProductoDao;
+import com.proyecto.domain.Producto;
+import com.proyecto.service.ProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

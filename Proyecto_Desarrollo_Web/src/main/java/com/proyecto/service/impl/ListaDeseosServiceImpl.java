@@ -1,23 +1,23 @@
 package com.proyecto.service.impl;
 
-import com.tienda.dao.ProductoDao;
-import com.tienda.domain.Producto;
-import com.tienda.service.ProductoService;
+import com.proyecto.dao.ListaDeseosDao;
+import com.proyecto.domain.ListaDeseos;
+import com.proyecto.service.ListaDeseosService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class ListaDeseosServiceImpl implements ProductoService {
+public class ListaDeseosServiceImpl implements ListaDeseosService {
 
     @Autowired
-    private ProductoDao productoDao;
+    private ListaDeseosDao listaDeseosDao;
 
     @Override
     @Transactional(readOnly = true)
-    public List<Producto> getProductos(boolean activos) {
-        var lista = productoDao.findAll();
+    public List<ListaDeseos> getListaDeseos(boolean activos) {
+        List<ListaDeseos> lista = listaDeseosDao.findAll();
         if (activos) {
             lista.removeIf(e -> !e.isActivo());
         }
@@ -26,25 +26,24 @@ public class ListaDeseosServiceImpl implements ProductoService {
 
     @Override
     @Transactional(readOnly = true)
-    public Producto getProducto(Producto producto) {
-        return productoDao.findById(producto.getIdProducto()).orElse(null);
+    public ListaDeseos getListaDeseos(ListaDeseos listaDeseos) {
+        return listaDeseosDao.findById(listaDeseos.getIdListaDeseos()).orElse(null);
     }
 
     @Override
     @Transactional
-    public void save(Producto producto) {
-        productoDao.save(producto);
+    public void save(ListaDeseos listaDeseos) {
+        listaDeseosDao.save(listaDeseos);
     }
 
     @Override
     @Transactional
-    public void delete(Producto producto) {
-        productoDao.delete(producto);
+    public void delete(ListaDeseos listaDeseos) {
+        listaDeseosDao.delete(listaDeseos);
     }
 
-    @Override
     @Transactional(readOnly = true)
-    public List<Producto> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
-        return productoDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
+    public List<ListaDeseos> findByPrecioBetweenOrderByDescripcion(double precioInf, double precioSup) {
+        return listaDeseosDao.findByPrecioBetweenOrderByDescripcion(precioInf, precioSup);
     }
 }

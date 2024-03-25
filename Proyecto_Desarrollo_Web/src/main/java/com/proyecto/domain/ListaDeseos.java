@@ -2,12 +2,11 @@ package com.proyecto.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "producto")
+@Table(name = "ListaDeseos")
 
 public class ListaDeseos implements Serializable {
 
@@ -15,7 +14,7 @@ public class ListaDeseos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_producto")
+    @Column(name = "id_ListaDeseos")
     private Long idProducto;
     //private Long idCategoria;
     private String descripcion;
@@ -26,8 +25,8 @@ public class ListaDeseos implements Serializable {
     private boolean activo;
 
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
-    Categoria categoria;
+    @JoinColumn(name = "id_ListaDeseos")
+    Producto ListaDeseos;
 
     public ListaDeseos() {
     }
