@@ -14,7 +14,7 @@
 	<name>proyecto</name>
 	<description>Codigo de Proyecto desarrollo web y patrones</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>19</java.version>
 	</properties>
 	<dependencies>
             <dependency>
@@ -73,10 +73,40 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-                
-                
-                
-                
+                <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+	 <dependency>
+	  <groupId>org.springframework</groupId>
+	  <artifactId>spring-tx</artifactId>
+	  <version>6.1.2</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>jakarta.transaction</groupId>
+	  <artifactId>jakarta.transaction-api</artifactId>
+	  <version>2.0.1</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.auth</groupId>
+	  <artifactId>google-auth-library-credentials</artifactId>
+	  <version>1.17.0</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.auth</groupId>
+	  <artifactId>google-auth-library-oauth2-http</artifactId>
+	  <version>1.17.0</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>com.google.cloud</groupId>
+	  <artifactId>google-cloud-storage</artifactId>
+	  <version>2.22.4</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>
